@@ -21,9 +21,9 @@ const apartments = ref<ApartmentType[]>([])
 
 const searchApartments = async ()=> {
     const respose = await Apartment.searchByPostion({
-        latitude: route.params.lat,
-        longitude: route.params.lon,
-        radius: route.params.radius
+        latitude: route.params.lat as string,
+        longitude: route.params.lon as string,
+        radius: route.params.radius as string
     })
     apartments.value = respose;
 }

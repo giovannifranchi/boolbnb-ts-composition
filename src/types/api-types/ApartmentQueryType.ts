@@ -5,9 +5,9 @@ export type ServicesType = {
 
 
 export interface ApartmentQueryType  {
-    longitutde: number;
-    latitude:number;
-    radius:number;
+    longitude: string;
+    latitude:string;
+    radius:string;
     minPrice?:number;
     maxPrice?:number;
     rooms?:number;

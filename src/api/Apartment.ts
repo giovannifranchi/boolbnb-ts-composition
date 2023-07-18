@@ -1,5 +1,5 @@
 import Ajax from "./Ajax";
-import type { PositionType } from "@/types/api-types/AddressType";
+import type { ApartmentQueryType } from "@/types/api-types/ApartmentQueryType";
 import type { ApartmentType } from "@/types/apartment-store/Apartment";
 
 const Apartment = {
@@ -11,7 +11,7 @@ const Apartment = {
         return Ajax.get('/apartments/highlighted', null, {});
     },
 
-    searchByPostion: (params:PositionType): Promise<ApartmentType[]>=> {
+    searchByPostion: (params:ApartmentQueryType): Promise<ApartmentType[]>=> {
         return Ajax.get('/apartments/search/advanced', params, {});
     }
 }
