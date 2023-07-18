@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 
-import { computed } from 'vue'
+import { computed, defineProps, PropType } from 'vue'
 import type { Size } from '@/types/utils-types/Size'
 
 
@@ -19,7 +19,7 @@ const {logoImg, size} = defineProps({
 
     size: {
         required: true,
-        type: String as ()=> Size
+        type: String as PropType<Size>
     }
 })
 
