@@ -85,6 +85,8 @@ const mergeThumbAndGallery = computed((): string[] => {
 .ms-img {
   object-fit: cover;
   object-position: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .index {
   position: absolute;

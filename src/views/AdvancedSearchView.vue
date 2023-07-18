@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container py-5">
         <ul v-if="apartments.length" class="row list-unstyled">
             <li v-for="apartment in apartments" :key="apartment.id" class="col-6 col-md-4">
                <CardComponent :info="apartment"/> 
