@@ -15,7 +15,7 @@ import type { Size } from '@/types/utils-types/Size'
 
 const props = defineProps({
     logoImg: {
-        type: String as ()=> string | null,
+        type: String,
         required: true
     },
 
