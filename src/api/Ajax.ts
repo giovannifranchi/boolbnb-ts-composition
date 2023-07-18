@@ -32,7 +32,7 @@ const ajaxRequest = async (config: Config) => {
 }
 
 const Ajax = {
-  get: (endpoint: string, params = null as any | null, config: Config) => {
+  get: (endpoint: string, params = null as any | null, config: Config ) => {
     config = {
       ...config,
       ...{

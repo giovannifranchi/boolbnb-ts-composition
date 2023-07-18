@@ -1,9 +1,9 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
   <main>
-    HOME
+    
   </main>
 </template>
+
+<script setup lang="ts"></script>
+
+<style scoped></style>
