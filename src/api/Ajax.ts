@@ -2,7 +2,7 @@ import axios from 'axios'
 import Header from './Header'
 import type { Config } from '@/types/api-types/Config'
 
-const baseURL = import.meta.env.BASE_URL
+const baseURL = import.meta.env.VITE_BASE_URL;
 
 const ajaxRequest = async (config: Config) => {
   config.baseURL = baseURL

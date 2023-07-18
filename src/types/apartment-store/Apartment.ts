@@ -1,3 +1,5 @@
+import type { ImagesType } from "./ImagesType";
+
 export interface ApartmentType {
     id: number;
     user_id: number;
@@ -12,12 +14,13 @@ export interface ApartmentType {
     beds: number;
     price: number;
     discount: number;
-    latitude: number;
-    longitude: number;
+    latitude: string;
+    longitude: string;
     thumb: string;
     is_visible: boolean;
     description: string;
     created_at: string;
     updated_at: string;
+    images?: ImagesType[];
 }
 

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 import Apartment from '@/api/Apartment'
-import type {ApartmentType} from '@/types/apartment-store/Apartment'
+import type { ApartmentType } from '@/types/apartment-store/Apartment'
 
 export const useApartmentStore = defineStore('apartmentStore', {
     
