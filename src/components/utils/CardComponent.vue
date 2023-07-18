@@ -1,5 +1,5 @@
 <template>
-  
+  <RouterLink :to="{ name: 'apartment', params: { id: props.info.id, slug: props.info.slug } }">
     <div class="ms-card w-100">
       <div class="img-container position-relative w-100 h-100">
         <img
@@ -8,18 +8,23 @@
           class="w-100 h-100 ms-img"
         />
         <div class="arrow left">
-          <button class="btn btn-primary" @click="decreasePic">
+          <button class="btn btn-primary" @click.prevent="decreasePic">
             <FontAwesomeIcon icon="chevron-left" />
           </button>
         </div>
         <div class="arrow right">
-          <button class="btn btn-primary" @click="incresePic">
+          <button class="btn btn-primary" @click.prevent="incresePic">
             <FontAwesomeIcon icon="chevron-right" />
           </button>
         </div>
         <ul class="index list-unstyled d-flex gap-1">
-          <li v-for="(pic, index) in mergeThumbAndGallery" :key="index" @click="selectPic(index)" :class="index === activePic ? 'ms-active' : ''">
-            <span ></span>
+          <li
+            v-for="(pic, index) in mergeThumbAndGallery"
+            :key="index"
+            @click.prevent="selectPic(index)"
+            :class="index === activePic ? 'ms-active' : ''"
+          >
+            <span></span>
           </li>
         </ul>
       </div>
@@ -28,7 +33,7 @@
         <h4>{{ props.info.address }}, {{ props.info.city }}, {{ props.info.state }}</h4>
       </div>
     </div>
- 
+  </RouterLink>
 </template>
 
 <script setup lang="ts">
@@ -47,10 +52,13 @@ const props = defineProps({
 
 // Images Section
 
+
 const activePic = ref<number>(0)
 
 const incresePic = () => {
-  activePic.value >= mergeThumbAndGallery.value.length - 1 ? (activePic.value = 0) : activePic.value++
+  activePic.value >= mergeThumbAndGallery.value.length - 1
+    ? (activePic.value = 0)
+    : activePic.value++
 }
 
 const decreasePic = () => {
@@ -67,18 +75,16 @@ const mergeThumbAndGallery = computed((): string[] => {
   const galleryPaths: string[] = props.info.images?.map((image) => image.path) || []
   return [props.info.thumb, ...galleryPaths]
 })
-
 </script>
 
 <style lang="scss" scoped>
-
-.ms-card{
-    height: 400px;
+.ms-card {
+  height: 400px;
 }
 
 .ms-img {
-    object-fit: cover;
-    object-position: center;
+  object-fit: cover;
+  object-position: center;
 }
 .index {
   position: absolute;
@@ -95,9 +101,9 @@ const mergeThumbAndGallery = computed((): string[] => {
       background-color: #fff;
     }
   }
-    .ms-active {
-      background-color: #fff;
-    }
+  .ms-active {
+    background-color: #fff;
+  }
 }
 .arrow {
   position: absolute;
