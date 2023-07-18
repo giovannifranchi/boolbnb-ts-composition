@@ -1,11 +1,14 @@
 <template>
 <div class="dropdown">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     {{ props.title }}
-  </a>
-
-  <ul class="dropdown-menu d-flex flex-column"> 
-    <RouterLink v-for="(link, index) in props.links" :key="index" :to="link.path">{{ link.title }}</RouterLink>
+  </button>
+  <ul class="dropdown-menu">
+    <li v-for="(link, index) in props.links" :key="index">
+      <RouterLink :to="link.path">
+        {{ link.title }}
+      </RouterLink>
+    </li>
   </ul>
 </div>
 </template>

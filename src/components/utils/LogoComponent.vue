@@ -1,28 +1,26 @@
 <template>
   <RouterLink to="/">
     <div class="logo">
-        <img :src="props.logoImg" alt="logo" :style="computedStyle">
-        <span>Logo</span>
+      <img :src="props.logoImg" alt="logo" :style="computedStyle" />
+      <span>Logo</span>
     </div>
   </RouterLink>
 </template>
 
 <script setup lang="ts">
-
 import { computed, PropType } from 'vue'
 import type { Size } from '@/types/utils-types/Size'
 
-
 const props = defineProps({
-    logoImg: {
-        type: String,
-        required: true
-    },
+  logoImg: {
+    type: String,
+    required: true
+  },
 
-    size: {
-        required: true,
-        type: String as PropType<Size>
-    }
+  size: {
+    required: true,
+    type: String as PropType<Size>
+  }
 })
 
 let computedStyle = computed(() => {
@@ -42,9 +40,6 @@ let computedStyle = computed(() => {
   }
   return `width: ${dimension}; height: ${dimension};`
 })
-
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
