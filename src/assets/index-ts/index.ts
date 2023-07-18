@@ -1,2 +1,2 @@
-import * as bootstrap from 'bootstrap';
+import 'bootstrap';
 import '@/assets/index.scss';

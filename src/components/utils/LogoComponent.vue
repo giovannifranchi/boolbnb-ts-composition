@@ -1,17 +1,19 @@
 <template>
+  <RouterLink to="/">
     <div class="logo">
-        <img :src="logoImg" alt="logo" :style="computedStyle">
+        <img :src="props.logoImg" alt="logo" :style="computedStyle">
         <span>Logo</span>
     </div>
+  </RouterLink>
 </template>
 
 <script setup lang="ts">
 
-import { computed, defineProps, PropType } from 'vue'
+import { computed, PropType } from 'vue'
 import type { Size } from '@/types/utils-types/Size'
 
 
-const {logoImg, size} = defineProps({
+const props = defineProps({
     logoImg: {
         type: String as ()=> string | null,
         required: true
@@ -25,7 +27,7 @@ const {logoImg, size} = defineProps({
 
 let computedStyle = computed(() => {
   let dimension: string
-  switch (size.value) {
+  switch (props.size) {
     case 'big':
       dimension = '100px'
       break
