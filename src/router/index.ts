@@ -23,6 +23,11 @@ const router = createRouter({
       path:'/advancedSearch/:lon/:lat/:radius',
       name: 'advancedSearch',
       component: ()=>import('@/views/AdvancedSearchView.vue')
+    },
+    {
+      path: '/apartment/:id/:slug',
+      name: 'apartment',
+      component: ()=>import('@/views/ApartmentView.vue')
     }
   ]
 })

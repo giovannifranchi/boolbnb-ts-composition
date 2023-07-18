@@ -11,6 +11,10 @@ const Apartment = {
         return Ajax.get('/apartments/highlighted', null, {});
     },
 
+    getOne: (id:string): Promise<ApartmentType>=>{
+        return Ajax.get(`/apartments/${id}`, null, {});
+    },
+
     searchByPostion: (params:ApartmentQueryType): Promise<ApartmentType[]>=> {
         return Ajax.get('/apartments/search/advanced', params, {});
     }

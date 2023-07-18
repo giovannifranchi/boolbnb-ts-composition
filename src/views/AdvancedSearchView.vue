@@ -1,8 +1,8 @@
 <template>
     <div>
-        <ul v-if="apartments.length">
-            <li v-for="apartment in apartments" :key="apartment.id">
-                {{ apartment.name }}
+        <ul v-if="apartments.length" class="row list-unstyled">
+            <li v-for="apartment in apartments" :key="apartment.id" class="col-6 col-md-4">
+               <CardComponent :info="apartment"/> 
             </li>
         </ul>
     </div>
@@ -13,6 +13,7 @@
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import Apartment from '@/api/Apartment'
+import CardComponent from '@/components/utils/CardComponent.vue';
 import type { ApartmentType } from '@/types/apartment-store/Apartment';
 
 const route = useRoute();
