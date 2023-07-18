@@ -1,6 +1,10 @@
 <template>
     <div>
-        <h1>{{ params }}</h1>
+        <ul v-if="apartments.length">
+            <li v-for="apartment in apartments" :key="apartment.id">
+                {{ apartment.name }}
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -8,13 +12,24 @@
 
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import Apartment from '@/api/Apartment'
+import type { ApartmentType } from '@/types/apartment-store/Apartment';
 
 const route = useRoute();
 
-const params = ref< any | null>(null)
+const apartments = ref<ApartmentType[]>([])
 
-onMounted(()=> {
-    params.value = route.params
+const searchApartments = async ()=> {
+    const respose = await Apartment.searchByPostion({
+        latitude: route.params.lat,
+        longitude: route.params.lon,
+        radius: route.params.radius
+    })
+    apartments.value = respose;
+}
+
+onMounted( ()=> {
+    searchApartments();
 })
 
 </script>
