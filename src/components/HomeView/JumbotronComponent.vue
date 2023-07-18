@@ -16,7 +16,7 @@
                 />
                 <ul v-if="foundItems">
                   <li v-for="(item, index) in foundItems" :key="index" @click="goToAddress(item.position.lon, item.position.lat)">
-                    {{ item.address.streetName }}, {{ item.address.municipality }},
+                    {{ item.address.streetName ? `${item.address.streetName},` : '' }} {{ item.address.municipality }},
                     {{ item.address.country }}
                   </li>
                 </ul>
