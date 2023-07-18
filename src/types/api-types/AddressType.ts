@@ -7,8 +7,9 @@ export type AddressType =  {
 }
 
 export type PositionType = {
-    log:string;
-    lat:string;
+    lon:number;
+    lat:number;
+    radius:number
 }
 
 export type AutoCompleteType = {
