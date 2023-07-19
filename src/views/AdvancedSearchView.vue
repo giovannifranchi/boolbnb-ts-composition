@@ -11,7 +11,7 @@
       Button with data-bs-target
     </button>
     <ul v-if="store.filteredApartments.length" class="row list-unstyled">
-      <li v-for="apartment in store.filteredApartments" :key="apartment.id" class="col-6 col-md-4">
+      <li v-for="apartment in getFilteredApartments" :key="apartment.id" class="col-6 col-md-4">
         <CardComponent :info="apartment" />
       </li>
     </ul>
@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, watch } from 'vue'
+import { onMounted, watch, computed } from 'vue'
 import CardComponent from '@/components/utils/CardComponent.vue'
 import SearchComponent from '@/components/utils/SearchComponent.vue'
 import { useFilterStore } from '@/stores/filterStore'
@@ -56,6 +56,10 @@ const setLongLat = () => {
   store.setLatitude(route.params.lat as string)
 }
 
+const getFilteredApartments = computed(()=> {
+    return store.filteredApartments
+})
+
 onMounted(() => {
   if (!store.filter.latitude) {
     setLongLat()
@@ -67,7 +71,7 @@ onMounted(() => {
 
 watch(store.filter, () => {
   store.searchAdvanced()
-})
+}, {deep: true})
 </script>
 
 <style lang="scss" scoped></style>

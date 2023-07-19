@@ -4,7 +4,7 @@
     <ul class="d-flex flex-wrap list-unstyled">
       <li v-for="(service, index) in apartmentStore.services" :key="index">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" @change="handleSelection(service.id)"/>
           <label class="form-check-label" for="flexCheckDefault">
             <FontAwesomeIcon :icon="service.icon_url"/>
           </label>
@@ -28,7 +28,7 @@ onMounted(() => {
 })
 
 const handleSelection = ((id:number)=>{
-    filterStore.services.includes(id) ? filterStore.removeServices(id) : filterStore.addServices(id);
+    filterStore.filter.Services ? filterStore.removeServices(id) : filterStore.setServices(id);
 })
 </script>
 
