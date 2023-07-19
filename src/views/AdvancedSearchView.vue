@@ -1,8 +1,8 @@
 <template>
     <div class="container py-5">
         <SearchComponent/>
-        <ul v-if="apartments.length" class="row list-unstyled">
-            <li v-for="apartment in apartments" :key="apartment.id" class="col-6 col-md-4">
+        <ul v-if="store.filteredApartments.length" class="row list-unstyled">
+            <li v-for="apartment in store.filteredApartments" :key="apartment.id" class="col-6 col-md-4">
                <CardComponent :info="apartment"/> 
             </li>
         </ul>
@@ -11,35 +11,19 @@
 
 <script setup lang="ts">
 
-import { computed, onMounted, ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
-import Apartment from '@/api/Apartment'
+import { onMounted, watch } from 'vue';
 import CardComponent from '@/components/utils/CardComponent.vue';
 import SearchComponent from '@/components/utils/SearchComponent.vue';
-import type { ApartmentType } from '@/types/apartment-store/Apartment';
+import { useFilterStore } from '@/stores/filterStore';
 
-const route = useRoute();
+const store = useFilterStore();
 
-const apartments = ref<ApartmentType[]>([])
-
-const searchApartments = async ()=> {
-    const respose = await Apartment.searchByPostion({
-        latitude: route.params.lat as string,
-        longitude: route.params.lon as string,
-        radius: route.params.radius as string
-    })
-    apartments.value = respose;
-}
-
-//it needs a computed because route params are not reactive by default
-const getParams = computed(()=> route.params)
-
-onMounted( ()=> {
-    searchApartments();
+onMounted(()=> {
+    store.searchAdvanced()
 })
 
-watch(getParams, ()=> {
-    searchApartments()
+watch(store.filter, ()=>{
+    store.searchAdvanced();
 })
 
 </script>

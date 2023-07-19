@@ -29,12 +29,15 @@ import type { AutoCompleteType } from '@/types/api-types/AddressType'
 
 import { ref } from 'vue'
 import { useRouter } from 'vue-router';
+import { useFilterStore } from '@/stores/filterStore'
 
 // Current search options
 
 const foundItems = ref<AutoCompleteType[]>([])
 
 const currentSearch = ref<string>('')
+
+const store = useFilterStore();
 
 const setFoundItems = async () => {
   if (currentSearch.value.trim() !== '') {
@@ -50,8 +53,9 @@ const router = useRouter();
 const goToAddress = (lon:number, lat:number, radius:number = 20)=> {
   foundItems.value = [];
   currentSearch.value = '';
+  store.setLatitude(lat);
+  store.setLongitude(lon)
   router.push({name: 'advancedSearch', params: {lon, lat, radius}});
-    
 }
 
 </script>
