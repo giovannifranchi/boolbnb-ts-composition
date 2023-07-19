@@ -48,7 +48,10 @@ const setFoundItems = async () => {
 const router = useRouter();
 
 const goToAddress = (lon:number, lat:number, radius:number = 20)=> {
-    router.push({name: 'advancedSearch', params: {lon, lat, radius}});
+  foundItems.value = [];
+  currentSearch.value = '';
+  router.push({name: 'advancedSearch', params: {lon, lat, radius}});
+    
 }
 
 </script>

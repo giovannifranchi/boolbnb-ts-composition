@@ -1,7 +1,7 @@
 <template>
   <RouterLink :to="{ name: 'apartment', params: { id: props.info.id, slug: props.info.slug } }">
     <div class="ms-card w-100">
-      <div class="img-container position-relative w-100 h-100">
+      <div class="img-container position-relative w-100 h-75">
         <img
           :src="mergeThumbAndGallery[activePic]"
           :alt="props.info.name"
