@@ -13,6 +13,8 @@
 
 <script setup lang="ts">
 
+//TODO: set a function that returns the class active if store has it 
+
 import { type PropType } from 'vue';
 
 import type { FilterButtonProps } from '../../types/filter-types/FilterButtonProps'
