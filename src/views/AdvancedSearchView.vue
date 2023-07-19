@@ -6,6 +6,7 @@
                <CardComponent :info="apartment"/> 
             </li>
         </ul>
+        <FilterButtonComponent :filterList="buttonFilters"/>
     </div>
 </template>
 
@@ -15,11 +16,29 @@ import { onMounted, watch } from 'vue';
 import CardComponent from '@/components/utils/CardComponent.vue';
 import SearchComponent from '@/components/utils/SearchComponent.vue';
 import { useFilterStore } from '@/stores/filterStore';
+import { useRoute } from 'vue-router';
+import FilterButtonComponent from '@/components/AdvancedSearchView/FilterButtonComponent.vue'
 
 const store = useFilterStore();
 
+const buttonFilters = ['beds', 'baths', 'rooms']
+
+const route = useRoute();
+
+const setLongLat = (()=>{
+    store.setLongitude(route.params.lon as string)
+    store.setLatitude(route.params.lat as string)
+})
+
+
+
 onMounted(()=> {
-    store.searchAdvanced()
+    if(!store.filter.latitude){
+        setLongLat();
+        store.searchAdvanced()
+    }else{
+        store.searchAdvanced()
+    }
 })
 
 watch(store.filter, ()=>{

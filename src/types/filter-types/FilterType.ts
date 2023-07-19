@@ -3,8 +3,8 @@ import type { ApartmentType } from "../apartment-store/Apartment";
 export interface FilterType {
     maxPrice: number | null;
     minPrice: number | null;
-    latitude: number | null;
-    longitude: number | null;
+    latitude: number | null | string;
+    longitude: number | null | string;
     range: number;
     services: number[];
     rooms: number | null;

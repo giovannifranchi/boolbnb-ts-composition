@@ -2,9 +2,9 @@
     <div v-for="(filter, index) in props.filterList" :key="index">
         <h3>{{ filter }}</h3>
         <ul class="row list-unstyled">
-            <div class="col-2" v-for="button in 6" :key="button">
-                <button class="btn btn-primary" @click="applyFilters(filter, button)">
-                    {{ formatButtons(button) }}
+            <div class="col-2" v-for="(button, btnIndex) in 7" :key="button">
+                <button class="btn btn-primary" @click="applyFilters(filter, btnIndex)">
+                    {{ formatButtons(btnIndex) }}
                 </button>
             </div>
         </ul>
@@ -30,7 +30,7 @@ const formatButtons = (index:number):string | number => {
     if(index === 0){
         return 'All';
     } 
-    else if(index > 0 && index <= 5) {
+    else if(index >= 1 && index <= 5) {
         return index;
     }
     else {

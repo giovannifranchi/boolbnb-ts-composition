@@ -26,10 +26,10 @@ export const useFilterStore = defineStore('filterStore', {
         setMinPrice(param: number | null) {
             this.filter.minPrice = param;
         },
-        setLatitude(param: number | null) {
+        setLatitude(param: number | null | string) {
             this.filter.latitude = param;
         },
-        setLongitude(param: number | null) {
+        setLongitude(param: number | null | string) {
             this.filter.longitude = param;
         },
         setRange(param: number) {
