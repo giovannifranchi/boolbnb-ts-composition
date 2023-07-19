@@ -38,6 +38,9 @@ export const useFilterStore = defineStore('filterStore', {
         setServices(param: number) {
             this.filter.services.push(param);
         },
+        removeServices(param:number){
+            this.filter.services = this.filter.services.filter((id)=> id !== param);
+        },
         setRooms(param: number | null) {
             this.filter.rooms = param;
         },
