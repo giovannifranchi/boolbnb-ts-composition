@@ -4,9 +4,15 @@
     <ul class="d-flex flex-wrap list-unstyled gap-2">
       <li v-for="(service, index) in apartmentStore.services" :key="index">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" @change="handleSelection(service.id)"/>
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault"
+            @change="handleSelection(service.id)"
+          />
           <label class="form-check-label" for="flexCheckDefault">
-            <FontAwesomeIcon :icon="service.icon_url"/>
+            <FontAwesomeIcon :icon="service.icon_url" />
             {{ service.name }}
           </label>
         </div>
@@ -28,9 +34,9 @@ onMounted(() => {
   apartmentStore.getServices()
 })
 
-const handleSelection = ((id:number)=>{
-    filterStore.filter.Services ? filterStore.removeServices(id) : filterStore.setServices(id);
-})
+const handleSelection = (id: number) => {
+  filterStore.filter.Services ? filterStore.removeServices(id) : filterStore.setServices(id)
+}
 </script>
 
 <style scoped></style>

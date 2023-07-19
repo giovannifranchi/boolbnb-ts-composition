@@ -52,7 +52,6 @@ const props = defineProps({
 
 // Images Section
 
-
 const activePic = ref<number>(0)
 
 const incresePic = () => {

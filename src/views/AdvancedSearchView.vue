@@ -34,7 +34,7 @@
       ></button>
     </div>
     <div class="offcanvas-body">
-        <FilterOffcanvaComponent/>
+      <FilterOffcanvaComponent />
     </div>
   </div>
 </template>
@@ -56,8 +56,8 @@ const setLongLat = () => {
   store.setLatitude(route.params.lat as string)
 }
 
-const getFilteredApartments = computed(()=> {
-    return store.filteredApartments
+const getFilteredApartments = computed(() => {
+  return store.filteredApartments
 })
 
 onMounted(() => {
@@ -69,9 +69,13 @@ onMounted(() => {
   }
 })
 
-watch(store.filter, () => {
-  store.searchAdvanced()
-}, {deep: true})
+watch(
+  store.filter,
+  () => {
+    store.searchAdvanced()
+  },
+  { deep: true }
+)
 </script>
 
 <style lang="scss" scoped></style>

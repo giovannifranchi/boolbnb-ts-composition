@@ -5,7 +5,7 @@
         <div class="col-9">
           <div class="row input-box">
             <div class="col-9">
-              <SearchComponent/>
+              <SearchComponent />
             </div>
           </div>
         </div>
@@ -15,10 +15,7 @@
 </template>
 
 <script setup lang="ts">
-
-import SearchComponent from '../utils/SearchComponent.vue';
-
-
+import SearchComponent from '../utils/SearchComponent.vue'
 </script>
 
 <style lang="scss" scoped>

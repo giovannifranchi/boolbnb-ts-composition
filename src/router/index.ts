@@ -12,22 +12,22 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: ()=>import('@/views/LoginView.vue')
+      component: () => import('@/views/LoginView.vue')
     },
     {
       path: '/register',
       name: 'register',
-      component: ()=>import('@/views/RegisterView.vue')
-    }, 
+      component: () => import('@/views/RegisterView.vue')
+    },
     {
-      path:'/advancedSearch/:lon/:lat/:radius',
+      path: '/advancedSearch/:lon/:lat/:radius',
       name: 'advancedSearch',
-      component: ()=>import('@/views/AdvancedSearchView.vue')
+      component: () => import('@/views/AdvancedSearchView.vue')
     },
     {
       path: '/apartment/:id/:slug',
       name: 'apartment',
-      component: ()=>import('@/views/ApartmentView.vue')
+      component: () => import('@/views/ApartmentView.vue')
     }
   ]
 })

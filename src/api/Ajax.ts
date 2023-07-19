@@ -2,7 +2,7 @@ import axios from 'axios'
 import Header from './Header'
 import type { Config } from '@/types/api-types/Config'
 
-const baseURL = import.meta.env.VITE_BASE_URL;
+const baseURL = import.meta.env.VITE_BASE_URL
 
 const ajaxRequest = async (config: Config) => {
   config.baseURL = baseURL
@@ -32,7 +32,7 @@ const ajaxRequest = async (config: Config) => {
 }
 
 const Ajax = {
-  get: (endpoint: string, params = null as any | null, config: Config ) => {
+  get: (endpoint: string, params = null as any | null, config: Config) => {
     config = {
       ...config,
       ...{
@@ -86,4 +86,4 @@ const Ajax = {
   }
 }
 
-export default Ajax;
+export default Ajax

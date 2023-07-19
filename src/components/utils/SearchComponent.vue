@@ -23,12 +23,11 @@
 </template>
 
 <script setup lang="ts">
-
 import AutoComplete from '@/api/AutoComplete'
 import type { AutoCompleteType } from '@/types/api-types/AddressType'
 
 import { ref } from 'vue'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 import { useFilterStore } from '@/stores/filterStore'
 
 // Current search options
@@ -46,17 +45,16 @@ const setFoundItems = async () => {
 
 // Router
 
-const router = useRouter();
-const store = useFilterStore();
+const router = useRouter()
+const store = useFilterStore()
 
-const goToAddress = (lon:number, lat:number, radius:number = 20)=> {
-  foundItems.value = [];
-  currentSearch.value = '';
-  store.setLatitude(lat);
+const goToAddress = (lon: number, lat: number, radius: number = 20) => {
+  foundItems.value = []
+  currentSearch.value = ''
+  store.setLatitude(lat)
   store.setLongitude(lon)
-  router.push({name: 'advancedSearch', params: {lon, lat, radius}});
+  router.push({ name: 'advancedSearch', params: { lon, lat, radius } })
 }
-
 </script>
 
 <style scoped></style>

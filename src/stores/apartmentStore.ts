@@ -6,32 +6,28 @@ import type { ApartmentType } from '@/types/apartment-store/Apartment'
 import type { ServicesType } from '@/types/api-types/ApartmentQueryType'
 
 export const useApartmentStore = defineStore('apartmentStore', {
-    
-    state: ()=> {
-        return {
-            allApartments: [] as ApartmentType[],
-            highlighted: [] as ApartmentType[],
-            services: [] as ServicesType[]
-        }
+  state: () => {
+    return {
+      allApartments: [] as ApartmentType[],
+      highlighted: [] as ApartmentType[],
+      services: [] as ServicesType[]
+    }
+  },
+
+  actions: {
+    async getAll() {
+      const result: ApartmentType[] = await Apartment.get()
+      this.allApartments = result
     },
 
-    actions: {
+    async getHighlighted() {
+      const result: ApartmentType[] = await Apartment.highlighted()
+      this.highlighted = result
+    },
 
-        async getAll(){
-            const result: ApartmentType[] = await Apartment.get();
-            this.allApartments = result;
-        },
-
-        async getHighlighted(){
-            const result: ApartmentType[] = await Apartment.highlighted();
-            this.highlighted = result
-        },
-
-        async getServices(){
-            const result: ServicesType[] = await Service.get();
-            this.services = result;
-        }
+    async getServices() {
+      const result: ServicesType[] = await Service.get()
+      this.services = result
     }
-
-    
+  }
 })

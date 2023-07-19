@@ -1,14 +1,13 @@
-
 export interface Config {
-    baseURL?: string;
-    headers?: {
-        'Accept': string,
-        'Content-Type': string,
-        'Authorization': string | null
-    }; 
-    method?: string,
-    token?:string,
-    data?: any
+  baseURL?: string
+  headers?: {
+    Accept: string
+    'Content-Type': string
+    Authorization: string | null
+  }
+  method?: string
+  token?: string
+  data?: any
 }
 
 export type ConfigType = Config | {}
