@@ -2,11 +2,11 @@
     <div v-for="(filter, index) in props.filterList" :key="index">
         <h3>{{ filter }}</h3>
         <ul class="row list-unstyled">
-            <div class="col-2" v-for="(button, btnIndex) in 7" :key="button">
+            <li class="col-2" v-for="(button, btnIndex) in 7" :key="button">
                 <button class="btn btn-primary" @click="applyFilters(filter, btnIndex)">
                     {{ formatButtons(btnIndex) }}
                 </button>
-            </div>
+            </li>
         </ul>
     </div>
 </template>
