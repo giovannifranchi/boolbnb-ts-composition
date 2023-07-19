@@ -10,8 +10,8 @@ import tt from "@tomtom-international/web-sdk-maps";
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
 
 import { useFilterStore } from '../../stores/filterStore'
-import { onMounted, watch } from "vue";
-import { create } from "domain";
+import { onMounted } from "vue";
+
 
 
 
