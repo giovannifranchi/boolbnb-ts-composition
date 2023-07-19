@@ -12,9 +12,9 @@ export const useFilterStore = defineStore('filterStore', {
             longitude: null,
             range: 20,
             services: [],
-            rooms: null,
-            beds: null,
-            baths: null
+            rooms: 0,
+            beds: 0,
+            baths: 0
         },
         filteredApartments: []
     }),

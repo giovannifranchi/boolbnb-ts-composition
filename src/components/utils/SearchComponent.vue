@@ -37,8 +37,6 @@ const foundItems = ref<AutoCompleteType[]>([])
 
 const currentSearch = ref<string>('')
 
-const store = useFilterStore();
-
 const setFoundItems = async () => {
   if (currentSearch.value.trim() !== '') {
     const response = await AutoComplete.search(currentSearch.value)
@@ -49,6 +47,7 @@ const setFoundItems = async () => {
 // Router
 
 const router = useRouter();
+const store = useFilterStore();
 
 const goToAddress = (lon:number, lat:number, radius:number = 20)=> {
   foundItems.value = [];
