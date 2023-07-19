@@ -17,6 +17,7 @@ import { create } from "domain";
 
 const store = useFilterStore();
 
+
 const createMap = ()=>{
 
    
@@ -35,16 +36,6 @@ const createMap = ()=>{
 onMounted(()=>{
     createMap()
 })
-
-watch(store.filter.longitude,()=> {
-    createMap()
-})
-
-watch(store.filter.latitude,()=> {
-    createMap()
-})
-
-
 
 
 
