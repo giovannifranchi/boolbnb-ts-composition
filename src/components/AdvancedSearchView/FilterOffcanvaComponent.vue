@@ -1,5 +1,6 @@
 <template>
     <div>
+        <MapComponent/>
         <FilterButtonComponent :filter-list="buttonList"/>
         <FilterServicesComponent/>
     </div>
@@ -9,6 +10,7 @@
 
 import FilterButtonComponent from './FilterButtonComponent.vue';
 import FilterServicesComponent from './FilterServicesComponent.vue';
+import MapComponent from './MapComponent.vue';
 import type { FilterButtonProps } from '../../types/filter-types/FilterButtonProps';
 
 
