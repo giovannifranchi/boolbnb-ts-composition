@@ -61,7 +61,7 @@ export const useFilterStore = defineStore('filterStore', {
         rooms: this.filter.rooms,
         minPrice: this.filter.minPrice,
         maxPrice: this.filter.maxPrice,
-        serivices: this.filter.services
+        services: this.filter.services
       })
       this.filteredApartments = result
     }

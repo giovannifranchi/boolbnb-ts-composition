@@ -13,5 +13,5 @@ export interface ApartmentQueryType {
   rooms: number | null
   baths: number | null
   beds: number | null
-  serivices: number[] | ServicesType[]
+  services: number[] | ServicesType[]
 }

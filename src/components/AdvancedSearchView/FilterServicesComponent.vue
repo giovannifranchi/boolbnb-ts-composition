@@ -35,7 +35,7 @@ onMounted(() => {
 })
 
 const handleSelection = (id: number) => {
-  filterStore.filter.Services ? filterStore.removeServices(id) : filterStore.setServices(id)
+  filterStore.filter.services.includes(id) ? filterStore.removeServices(id) : filterStore.setServices(id)
 }
 </script>
 
